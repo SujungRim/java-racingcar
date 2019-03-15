@@ -2,14 +2,15 @@ package racingcar.domain;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Referee {
     private int getMaxPosition(List<Car> cars) {
-        return cars.stream()
+        Car maxPositionCar = cars.stream()
                 .max(Comparator.comparing(Car::getPosition))
-                .get()
-                .getPosition();
+                .orElseThrow(NoSuchElementException::new);
+        return maxPositionCar.getPosition();
     }
 
     public List<String> pickNamesOfWinners(List<Car> cars) {

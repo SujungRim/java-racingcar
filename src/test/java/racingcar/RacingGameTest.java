@@ -20,7 +20,7 @@ public class RacingGameTest {
         List<Car> cars = new ArrayList<>();
         String[] names = {"1번차", "2번차", "3번차"};
         for (int i = 0; i < 3; i++) {
-            cars.add(new Car(names[i]));
+            cars.add(new Car(names[i], 3));
         }
         racingGame.race(cars, new FixedNumberGenerator(1));
         for (Car car : cars) {
@@ -36,7 +36,7 @@ public class RacingGameTest {
     public void 차1대_레이싱10회_멈춤4회_전진6회() {
         racingGame = new RacingGame(10);
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car("잘 달리는 차"));
+        cars.add(new Car("잘 달리는 차", 3));
 
         for (int i = 0; i < 10; i++) {
             racingGame.race(cars, new FixedNumberGenerator(i));

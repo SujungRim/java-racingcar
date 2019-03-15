@@ -9,7 +9,7 @@ public class CarDao {
     private List<Car> cars = new ArrayList<>();
 
     public void save(List<String> names) {
-        names.forEach(name -> cars.add(new Car(name)));
+        names.forEach(name -> cars.add(new Car(name, 3)));
     }
 
     public List<Car> findAll() {
